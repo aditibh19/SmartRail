@@ -1,0 +1,91 @@
+### Time and Space Complexity Analysis
+
+In this Railway Booking System project, we utilize various data structures and algorithms to optimize both time and space complexity. Below is an analysis of the complexity along with explanations on how we have achieved efficiency.
+
+#### 1. Data Structures Used
+- **Vectors**: Used for storing train details and booked tickets.
+- **Hash Maps (unordered_map)**: Used for storing users and booked tickets, enabling average O(1) time complexity for insertions, deletions, and lookups.
+
+#### 2. Time Complexity
+- **Train Initialization**: O(n)
+  - Each train is initialized once, where `n` is the number of trains.
+  
+- **Display Trains**: O(n)
+  - Iterates through all trains to display them.
+
+- **Reserve Ticket**: O(n) in the worst case for finding a train, plus O(1) for ticket storage.
+  - Finding a train is O(n) due to the need to search through the vector. If the train is found, booking takes O(1).
+
+- **Cancel Ticket**: O(1)
+  - Deleting from a hash map is O(1) on average.
+
+- **Edit Ticket Details**: O(1)
+  - Directly accessing and modifying the ticket in the hash map.
+
+- **Search Trains**: O(n)
+  - Searching through the list of trains based on criteria takes linear time.
+
+- **View Train Details**: O(n)
+  - This also involves searching through the train vector.
+
+- **Payment Processing**: O(d)
+  - Where `d` is the length of the card number (constant time in practice).
+
+- **User Registration/Login**: O(1)
+  - Both operations involve inserting and checking in a hash map, which is O(1) on average.
+
+#### Overall Time Complexity
+The overall time complexity for most operations (like reserving a ticket and searching trains) is dominated by O(n) due to the linear search required in vectors. However, operations involving hash maps are O(1).
+
+#### 3. Space Complexity
+- **Trains Storage**: O(n)
+  - We are storing details for `n` trains.
+  
+- **Booked Tickets Storage**: O(m)
+  - Where `m` is the number of tickets booked.
+  
+- **User Storage**: O(u)
+  - Where `u` is the number of registered users.
+  
+- **Total Space Complexity**: O(n + m + u)
+
+### Optimizations Made
+1. **Use of Hash Maps**: By utilizing unordered maps for storing user and ticket data, we achieve average-case O(1) time complexity for retrieval and updates, significantly speeding up user login and ticket booking operations compared to using linear search through a list.
+  
+2. **Vector for Dynamic Storage**: Vectors provide dynamic resizing and easy access for train and ticket management. While the search is linear, the overall system benefits from the fast insertion and deletion capabilities of vectors when managing users and tickets.
+
+3. **Minimized Redundant Searches**: By storing booked tickets in a hash map and categorizing them by user, we avoid redundant searches and direct lookups, thereby optimizing operations like cancellation and modifications.
+
+4. **Realistic Price Calculation**: Instead of hard-coding prices within the reservation method, a separate function determines prices based on seat types. This keeps the code modular and easier to update.
+
+### Conclusion
+The design of the Railway Booking System effectively employs data structures that balance both time and space efficiency. By choosing vectors for ordered data and hash maps for fast access, we create a system that not only functions optimally but also can scale with more users and data. These considerations make the project a strong example of applying Data Structures and Algorithms in a real-world scenario. 
+
+### Future Improvements
+- Implement a database system for persistent storage, which could further optimize retrieval times and allow for more complex queries.
+- Use more advanced search algorithms or data structures (like tries or segment trees) if the dataset grows significantly.
+- Consider multi-threading for handling user requests simultaneously, enhancing the system's responsiveness.
+
+New Features Added:
+Search Train: Users can search for trains based on source and destination.
+User Profile Management: Users can update their passwords and email addresses.
+User-Specific Ticket Management: Each user keeps track of their booked tickets.
+Enhanced Train Initialization: Trains are generated dynamically with varied details.
+More Robust User Interaction: Improved user interface with options for managing their profile.
+Key Features
+Trains Initialization: The program initializes with 50 train entries.
+User Registration/Login: Users can register and log in.
+Ticket Reservation: Users can reserve tickets based on train availability.
+View Booked Tickets: Users can view their booked tickets.
+Search Functionality: Users can search for trains based on source and destination.
+Output
+You can run the program, and here’s how it would typically behave:
+
+View Trains: Displays a list of available trains.
+Reserve Ticket: Prompts for train ID and passenger details.
+View Booked Tickets: Shows tickets booked by the logged-in user.
+Register User: Allows creating a new user.
+Login User: Verifies user credentials.
+Get User Input: Ask the user where they want to travel from and to.
+Find Shortest Path: Use Dijkstra's algorithm to find the shortest path between the two locations.
+Suggest Trains: List the available trains for the route.
